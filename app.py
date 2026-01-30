@@ -12,18 +12,18 @@ from flask_cors import CORS
 from flask import send_file
 from tasks import analyze_video_task, analyze_image_sequence_task
 
-app = Flask(__name__)
-CORS(app, resources={
-    r"/api/*": {
-        "origins": ["http://localhost:8501", "http://localhost:3000", "*"],  # Allow all origins
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
-    }
-})
-app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
-app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max
+# app = Flask(__name__)
+# CORS(app, resources={
+#     r"/api/*": {
+#         "origins": ["http://localhost:8501", "http://localhost:3000", "*"],  # Allow all origins
+#         "methods": ["GET", "POST", "OPTIONS"],
+#         "allow_headers": ["Content-Type"]
+#     }
+# })
+# app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
+# app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max
 
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+# os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
@@ -146,19 +146,19 @@ def export_pdf(job_id):
 # MAIN EXECUTION
 # ============================================================================
 
-if __name__ == '__main__':
-    # Example usage
-    print("Frame Analysis System - Backend")
-    print("=" * 50)
-    print("\nTo run the system:")
-    print("\n1. Start Redis server:")
-    print("   redis-server")
-    print("\n2. Start Celery worker:")
-    print("   celery -A frame_analysis worker --loglevel=info")
-    print("\n3. Start Flask API:")
-    print("   python frame_analysis.py")
-    print("\n4. Submit jobs via API:")
-    print("   curl -X POST -F 'video=@test.mp4' http://localhost:5000/api/analyze/video")
+# if __name__ == '__main__':
+#     # Example usage
+#     print("Frame Analysis System - Backend")
+#     print("=" * 50)
+#     print("\nTo run the system:")
+#     print("\n1. Start Redis server:")
+#     print("   redis-server")
+#     print("\n2. Start Celery worker:")
+#     print("   celery -A frame_analysis worker --loglevel=info")
+#     print("\n3. Start Flask API:")
+#     print("   python frame_analysis.py")
+#     print("\n4. Submit jobs via API:")
+#     print("   curl -X POST -F 'video=@test.mp4' http://localhost:5000/api/analyze/video")
     
-    # Run Flask app
-    app.run(debug=True, host='0.0.0.0', port=5000)
+#     # Run Flask app
+#     app.run(debug=True, host='0.0.0.0', port=5000)
