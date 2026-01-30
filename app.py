@@ -1,6 +1,6 @@
 import os
 from flask import Flask, flash, render_template, redirect, request
-from tasks import add
+#from tasks import add
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', "super-secret")
@@ -10,7 +10,7 @@ from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 from flask import send_file
-from tasks import analyze_video_task, analyze_image_sequence_task
+from tasks import analyze_video_task, analyze_image_sequence_task, add
 
 # app = Flask(__name__)
 # CORS(app, resources={
